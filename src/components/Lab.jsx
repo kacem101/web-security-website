@@ -13,7 +13,7 @@ const Lab = ({ lab, onLabSolved }) => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`https://web-security-api.onrender.com/api/labs/check-flag/${lab.id}`, {
+            const response = await fetch(`https://web-security-website-api-1.onrender.com/api/labs/check-flag/${lab.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

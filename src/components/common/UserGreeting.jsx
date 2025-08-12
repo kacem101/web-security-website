@@ -9,7 +9,7 @@ const UserGreeting = () => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const response = await fetch('https://web-security-api.onrender.com/api/users/profile', {
+          const response = await fetch('https://web-security-website-api-1.onrender.com/api/users/profile', {
             method: 'GET',
             headers: {
               'Authorization': `Bearer ${token}`,

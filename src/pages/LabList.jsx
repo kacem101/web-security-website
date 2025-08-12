@@ -30,7 +30,7 @@ const LabList = () => {
     if (!token) return;
 
     try {
-      const response = await fetch('https://web-security-api.onrender.com/api/users/profile', {
+      const response = await fetch('https://web-security-website-api-1.onrender.com/api/users/profile', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (response.ok) {
@@ -53,7 +53,7 @@ const LabList = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch(`https://web-security-api.onrender.com/api/labs/start/${labId}`, {
+      const response = await fetch(`https://web-security-website-api-1.onrender.com/api/labs/start/${labId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -79,7 +79,7 @@ const LabList = () => {
     const containerId = labInfo.containerId;
 
     try {
-      await fetch(`https://web-security-api.onrender.com/api/labs/stop/${containerId}`, {
+      await fetch(`https://web-security-website-api-1.onrender.com/api/labs/stop/${containerId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -102,7 +102,7 @@ const LabList = () => {
     const labId = labInfo.labId;
 
     try {
-      const response = await fetch(`https://web-security-api.onrender.com/api/labs/check-flag/${labId}`, {
+      const response = await fetch(`https://web-security-website-api-1.onrender.com/api/labs/check-flag/${labId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

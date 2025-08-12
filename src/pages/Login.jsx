@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       // API call to the backend login endpoint
-      const response = await fetch('https://web-security-api.onrender.com/api/users/login', {
+      const response = await fetch('https://web-security-website-api-1.onrender.com/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
