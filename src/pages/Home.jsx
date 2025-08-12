@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/homepage/HeroSection';
 import PreviewCard from '../components/homepage/PreviewCard';
-
+import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div className="container mx-auto">

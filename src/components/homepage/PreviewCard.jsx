@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaBook, FaFlask } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const PreviewCard = ({ title, description, icon, link }) => {
   return (
-    <a href={link} className="block bg-dark-secondary rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+    <Link to={link} className="block bg-dark-secondary rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
       <div className="flex items-center space-x-4 mb-4">
         {icon === 'book' ? (
           <FaBook className="text-neon-blue text-4xl" />
@@ -13,7 +14,7 @@ const PreviewCard = ({ title, description, icon, link }) => {
         <h3 className="text-2xl font-bold font-mono text-text-light">{title}</h3>
       </div>
       <p className="text-text-gray">{description}</p>
-    </a>
+    </Link>
   );
 };
 

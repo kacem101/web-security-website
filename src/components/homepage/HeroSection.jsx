@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
-
+import { Link } from 'react-router-dom';
 const HeroSection = () => {
   return (
     <div className="relative text-center py-20 md:py-40">
@@ -26,9 +26,11 @@ const HeroSection = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
+        <Link to="/labs">
         <Button className="bg-neon-blue text-dark-background hover:bg-neon-green hover:text-dark-background">
           Explore the Labs
         </Button>
+        </Link>
       </motion.div>
     </div>
   );

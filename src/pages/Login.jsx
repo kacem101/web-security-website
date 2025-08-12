@@ -6,13 +6,40 @@ import { motion } from 'framer-motion';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // For now, we will simulate a successful login
-    alert('Login successful (simulated)!');
-    navigate('/');
+    setError('');
+    setLoading(true);
+
+    try {
+      // API call to the backend login endpoint
+      const response = await fetch('https://web-security-api.onrender.com/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Assume login is successful and the user is whitelisted
+        // You would typically store a JWT token here
+        localStorage.setItem('token', data.token);
+        navigate('/labs');
+      } else {
+        // Handle login errors from the backend
+        setError(data.error || 'Login failed. Please check your credentials.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again later.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,6 +57,7 @@ const Login = () => {
           Member Login
         </h2>
         <form onSubmit={handleLogin}>
+          {error && <div className="text-red-500 text-center mb-4">{error}</div>}
           <div className="mb-6">
             <label className="block text-text-gray text-lg font-bold mb-2" htmlFor="username">
               Username
@@ -59,8 +87,9 @@ const Login = () => {
           <button
             type="submit"
             className="w-full py-4 rounded-md font-mono font-bold text-xl transition-transform duration-200 hover:scale-105 active:scale-95 bg-neon-blue text-dark-background hover:bg-neon-green hover:text-dark-background"
+            disabled={loading}
           >
-            LOGIN
+            {loading ? 'Logging In...' : 'LOGIN'}
           </button>
         </form>
       </motion.div>

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: sqli_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testdb
+    volumes:
+      - ./lab-2-sqli/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+
+  web:
+    build: ./lab-2-sqli
+    container_name: sqli_web
+    ports:
+      - "8083:80"
+    volumes:
+      - ./lab-2-sqli:/var/www/html
+    depends_on:
+      - db
+    restart: always

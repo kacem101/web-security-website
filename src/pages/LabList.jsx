@@ -1,5 +1,3 @@
-// frontend/src/pages/LabList.jsx
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -110,14 +108,14 @@ const LabList = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ submittedFlag: flag }),
+        body: JSON.stringify({ submittedFlag: flag }), // <-- Corrected line
       });
 
       const data = await response.json();
       setMessage(data.message);
 
       if (response.ok) {
-        fetchUserProgress(); // <-- This will re-fetch the user's progress
+        fetchUserProgress();
         stopLab();
       }
     } catch (err) {
@@ -180,7 +178,6 @@ const LabList = () => {
               <motion.div key={lab.id} whileHover={{ scale: 1.02 }} className="bg-dark-secondary p-4 rounded-lg flex justify-between items-center">
                 <span className="text-xl font-mono">
                   {lab.name}
-                  {/* Conditional rendering for the "Completed" badge */}
                   {userProgress[lab.id]?.completed && (
                     <span className="ml-4 text-neon-green text-sm"> (Completed)</span>
                   )}
