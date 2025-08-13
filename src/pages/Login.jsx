@@ -30,6 +30,7 @@ const Login = () => {
         // You would typically store a JWT token here
         localStorage.setItem('token', data.token);
         navigate('/');
+        window.location.reload();
       } else {
         // Handle login errors from the backend
         setError(data.error || 'Login failed. Please check your credentials.');
