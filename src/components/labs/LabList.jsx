@@ -36,7 +36,7 @@ const LabList = () => {
                 id: 'sql-injection-lab-1', 
                 name: 'Basic SQL Injection Lab', 
                 description: 'This lab is vulnerable to a basic SQL Injection attack. Try to bypass the login form by injecting a malicious string into the username or password field.',
-                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build sqli-web\n3. Navigate to http://localhost:8083 in your browser to start the lab.',
+                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build sqli-lab-1\n3. Navigate to http://localhost:8083 in your browser to start the lab.',
             },
             { 
                 id: 'sql-injection-lab-2', 
