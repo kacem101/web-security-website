@@ -4,12 +4,24 @@ const authenticate = require('../middleware/authenticate');
 const User = require('../models/User');
 const mongoose = require('mongoose');
 
+// Define flags for each lab
+const labFlags = {
+    'xss-lab-1': 'FLAG{XSS_SUCCESS_e16c31f2}',
+    'sql-injection-lab-1': 'FLAG{SQLI_CHALLENGE_f78a2d1b}',
+    // Add more labs and their flags here
+};
+
+// Function to check the submitted flag against the correct flag
+const checkFlag = (labId, submittedFlag) => {
+    return labFlags[labId] === submittedFlag;
+};
+
 // Route to submit a flag for a lab
 router.post('/check-flag/:labId', authenticate, async (req, res) => {
     try {
         const { labId } = req.params;
         const { submittedFlag } = req.body;
-        
+
         // Convert the string ID from the JWT to a Mongoose ObjectId
         const userId = req.user.id;
         const userObjectId = new mongoose.Types.ObjectId(userId);
@@ -38,4 +50,5 @@ router.post('/check-flag/:labId', authenticate, async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+
 module.exports = router;
