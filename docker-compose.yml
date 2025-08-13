@@ -11,7 +11,7 @@ services:
       - ./lab-2-sqli/init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: always
 
-  web:
+  sqli-web:
     build: ./lab-2-sqli
     container_name: sqli_web
     ports:
@@ -20,4 +20,13 @@ services:
       - ./lab-2-sqli:/var/www/html
     depends_on:
       - db
+    restart: always
+      
+  xss-web:
+    build: ./lab-1-xss
+    container_name: xss_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./lab-1-xss:/var/www/html
     restart: always

@@ -124,7 +124,7 @@ const LabList = () => {
                 <pre className="whitespace-pre-wrap">{selectedLab.instructions}</pre>
                 
                 <a 
-                  href="YOUR_DOWNLOAD_URL_FROM_GITHUB_HERE" 
+                  href="https://github.com/user-attachments/files/21757866/vulnerable_labs.zip" 
                   download 
                   className="mt-4 py-2 px-4 rounded-md font-mono font-bold text-lg bg-neon-green text-dark-background hover:bg-neon-blue transition-colors duration-200 inline-block"
                 >
