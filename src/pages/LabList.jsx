@@ -16,13 +16,19 @@ const LabList = () => {
                 id: 'xss-lab-1', 
                 name: 'Reflected XSS Lab', 
                 description: 'This lab is vulnerable to a simple reflected Cross-Site Scripting attack. Your goal is to inject a script that executes in the user\'s browser.',
-                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build xss-web\n3. Navigate to http://localhost:8080 in your browser to start the lab.',
+                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build xss-lab-1\n3. Navigate to http://localhost:8080 in your browser to start the lab.',
             },
             { 
                 id: 'xss-lab-2', 
                 name: 'Stored XSS Lab', 
                 description: 'This lab demonstrates a stored Cross-Site Scripting vulnerability. A message board allows you to inject malicious scripts that get stored in the database.',
-                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build stored-xss-web\n3. Navigate to http://localhost:8081 in your browser to start the lab.',
+                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build xss-lab-2\n3. Navigate to http://localhost:8081 in your browser to start the lab.',
+            },
+            { 
+                id: 'xss-lab-3', 
+                name: 'DOM-based XSS Lab', 
+                description: 'This lab demonstrates a DOM-based Cross-Site Scripting vulnerability. The vulnerability lies in the client-side code rather than the server-side.',
+                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build xss-lab-3\n3. Navigate to http://localhost:8082 in your browser to start the lab.',
             }
         ],
         'sql-injection': [
@@ -31,6 +37,18 @@ const LabList = () => {
                 name: 'Basic SQL Injection Lab', 
                 description: 'This lab is vulnerable to a basic SQL Injection attack. Try to bypass the login form by injecting a malicious string into the username or password field.',
                 instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build sqli-web\n3. Navigate to http://localhost:8083 in your browser to start the lab.',
+            },
+            { 
+                id: 'sql-injection-lab-2', 
+                name: 'Error-Based SQL Injection Lab', 
+                description: 'This lab is vulnerable to error-based SQL injection, where the database returns error messages that reveal information about the database structure.',
+                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build sqli-lab-2\n3. Navigate to http://localhost:8084 in your browser to start the lab.',
+            },
+            { 
+                id: 'sql-injection-lab-3', 
+                name: 'Time-Based Blind SQL Injection Lab', 
+                description: 'This lab is vulnerable to time-based blind SQL injection, where there are no error messages or visible output. The success of the attack is inferred by the response time of the server.',
+                instructions: '1. Make sure you have Docker installed.\n2. Run the following command in your terminal:\ndocker-compose up --build sqli-lab-3\n3. Navigate to http://localhost:8085 in your browser to start the lab.',
             }
         ]
     };

@@ -7,7 +7,11 @@ const mongoose = require('mongoose');
 // Define flags for each lab
 const labFlags = {
     'xss-lab-1': 'FLAG{XSS_SUCCESS_e16c31f2}',
+    'xss-lab-2': 'FLAG{XSS_STORED_c5d9a8f2}',
+    'xss-lab-3': 'FLAG{XSS_DOM_b8e7c1d3}',
     'sql-injection-lab-1': 'FLAG{SQLI_CHALLENGE_f78a2d1b}',
+    'sql-injection-lab-2': 'FLAG{SQLI_ERROR_BASED_d1f2e9c4}',
+    'sql-injection-lab-3': 'FLAG{SQLI_TIME_BASED_a3b5c7d9}',
     // Add more labs and their flags here
 };
 
