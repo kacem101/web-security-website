@@ -29,7 +29,7 @@ const Login = () => {
         // Assume login is successful and the user is whitelisted
         // You would typically store a JWT token here
         localStorage.setItem('token', data.token);
-        navigate('/labs');
+        navigate('/');
       } else {
         // Handle login errors from the backend
         setError(data.error || 'Login failed. Please check your credentials.');
